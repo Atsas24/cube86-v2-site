@@ -73,9 +73,10 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-2xl bg-[var(--brand-forest)]/6 border border-[var(--brand-forest)]/10 p-8 sm:p-10 text-center">
-        <p className="font-display text-xl sm:text-[26px] text-[var(--ink)]">Message sent.</p>
+        <p className="font-display text-xl sm:text-[26px] text-[var(--ink)]">One last step.</p>
         <p className="mt-2 text-sm sm:text-[15px] text-[var(--ink-muted)]">
-          We&apos;ll get back to you within one business day.
+          Your mail app should have opened with your message ready to send. If it didn&apos;t, email us directly at{" "}
+          <a className="underline underline-offset-2" href="mailto:hello@cube86.com">hello@cube86.com</a>.
         </p>
       </div>
     );
