@@ -37,7 +37,7 @@ export default function ContactPage() {
       <section className="relative bg-[var(--bg-cream)] py-20 md:py-28">
         <BgGrid withReveal={true} />
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
             {/* Form */}
             <div className="lg:col-span-7">
