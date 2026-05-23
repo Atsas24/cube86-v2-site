@@ -5,8 +5,8 @@ export async function GET() {
   const results: Record<string, string> = {};
 
   const configs = [
-    { label: "465-ssl", port: 465, secure: true },
-    { label: "587-tls", port: 587, secure: false },
+    { label: "587-ipv4", port: 587, secure: false, family: 4 },
+    { label: "465-ipv4", port: 465, secure: true, family: 4 },
   ];
 
   for (const cfg of configs) {
@@ -15,6 +15,7 @@ export async function GET() {
       port: cfg.port,
       secure: cfg.secure,
       requireTLS: !cfg.secure,
+      family: cfg.family,
       connectionTimeout: 8000,
       greetingTimeout: 8000,
       socketTimeout: 8000,
