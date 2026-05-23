@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { sendContactForm } from "@/app/actions";
 
 export function ContactForm() {
-  const [isLoading, setIsLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -44,7 +42,7 @@ export function ContactForm() {
     setErrors((prev) => ({ ...prev, [name]: error || undefined }));
   };
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const newErrors: Record<string, string | undefined> = {};
@@ -59,16 +57,17 @@ export function ContactForm() {
       return;
     }
 
-    setIsLoading(true);
-    const result = await sendContactForm(formData);
-    setIsLoading(false);
+    const subject = `New enquiry from ${formData.name}${formData.org ? ` (${formData.org})` : ""}`;
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      formData.org ? `Organisation: ${formData.org}` : "",
+      "",
+      formData.message,
+    ].filter(Boolean).join("\n");
 
-    if (result.success) {
-      setSent(true);
-    } else {
-      setErrors({ form: result.error });
-      setTouched({ name: true, email: true, org: true, message: true });
-    }
+    window.location.href = `mailto:hello@cube86.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
   }
 
   if (sent) {
@@ -135,17 +134,11 @@ export function ContactForm() {
           className="mt-2 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg-cream)] px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-[15px] text-[var(--ink)] placeholder:text-[var(--ink-soft)] focus:outline-none focus:border-[var(--brand-forest)] focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 transition-colors duration-200 ease-out"
         />
       </div>
-      {errors.form && (
-        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-          {errors.form}
-        </p>
-      )}
       <button
         type="submit"
-        disabled={isLoading}
-        className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-forest)] text-[var(--bg-cream)] font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] hover:bg-[var(--brand-forest-mid)] active:scale-[0.97] transition-[transform,background-color] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
+        className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-forest)] text-[var(--bg-cream)] font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] hover:bg-[var(--brand-forest-mid)] active:scale-[0.97] transition-[transform,background-color] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 focus-visible:outline-none"
       >
-        {isLoading ? "Sending..." : "Send →"}
+        Send →
       </button>
       <p className="text-[11px] sm:text-[12px] text-[var(--ink-soft)]">
         Or email us directly:{" "}
