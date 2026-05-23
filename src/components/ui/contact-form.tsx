@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { sendContactForm } from "@/app/actions";
 
 export function ContactForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -42,7 +44,7 @@ export function ContactForm() {
     setErrors((prev) => ({ ...prev, [name]: error || undefined }));
   };
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const newErrors: Record<string, string | undefined> = {};
@@ -57,14 +59,16 @@ export function ContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(
-      `New enquiry from ${formData.name}${formData.org ? ` (${formData.org})` : ""}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}${formData.org ? `\nOrganisation: ${formData.org}` : ""}\n\n${formData.message}`
-    );
-    window.location.href = `mailto:hello@cube86.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    setIsLoading(true);
+    const result = await sendContactForm(formData);
+    setIsLoading(false);
+
+    if (result.success) {
+      setSent(true);
+    } else {
+      setErrors({ form: result.error });
+      setTouched({ name: true, email: true, org: true, message: true });
+    }
   }
 
   if (sent) {
