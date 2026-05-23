@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cube86-v2-site
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: SMTP_EMAIL
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false

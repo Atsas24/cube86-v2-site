@@ -74,9 +74,9 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-2xl bg-[var(--brand-forest)]/6 border border-[var(--brand-forest)]/10 p-8 sm:p-10 text-center">
-        <p className="font-display text-xl sm:text-[26px] text-[var(--ink)]">Your email app should open.</p>
+        <p className="font-display text-xl sm:text-[26px] text-[var(--ink)]">Message sent.</p>
         <p className="mt-2 text-sm sm:text-[15px] text-[var(--ink-muted)]">
-          Hit send and we&apos;ll get back to you within one business day.
+          We&apos;ll get back to you within one business day.
         </p>
       </div>
     );
