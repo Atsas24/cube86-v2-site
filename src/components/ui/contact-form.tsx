@@ -85,7 +85,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl bg-[var(--surface)] border border-[var(--border)] p-5 sm:p-6 md:p-8 shadow-card space-y-4 sm:space-y-5"
+      className="rounded-2xl bg-white border border-[var(--border)] p-5 sm:p-6 md:p-8 shadow-card space-y-4 sm:space-y-5"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
         <Field
@@ -135,11 +135,17 @@ export function ContactForm() {
           className="mt-2 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg-cream)] px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-[15px] text-[var(--ink)] placeholder:text-[var(--ink-soft)] focus:outline-none focus:border-[var(--brand-forest)] focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 transition-colors duration-200 ease-out"
         />
       </div>
+      {errors.form && (
+        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+          {errors.form}
+        </p>
+      )}
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-forest)] text-[var(--bg-cream)] font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] hover:bg-[var(--brand-forest-mid)] active:scale-[0.97] transition-[transform,background-color] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 focus-visible:outline-none"
+        disabled={isLoading}
+        className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-forest)] text-[var(--bg-cream)] font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] hover:bg-[var(--brand-forest-mid)] active:scale-[0.97] transition-[transform,background-color] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--accent-lime)] focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Send →
+        {isLoading ? "Sending..." : "Send →"}
       </button>
       <p className="text-[11px] sm:text-[12px] text-[var(--ink-soft)]">
         Or email us directly:{" "}

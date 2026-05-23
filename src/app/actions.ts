@@ -38,10 +38,9 @@ export async function sendContactForm(data: ContactFormData) {
 
     return { success: true };
   } catch (err) {
-    return {
-      success: false,
-      error: err instanceof Error ? err.message : "Failed to send email",
-    };
+    const message = err instanceof Error ? err.message : "Failed to send email";
+    console.error("[contact form] SMTP error:", message, err);
+    return { success: false, error: message };
   }
 }
 
