@@ -14,6 +14,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   requireTLS: true,
+  // force IPv4 — Render resolves send.one.com to IPv6 which it cannot route
   family: 4,
   connectionTimeout: 10000,
   greetingTimeout: 10000,
@@ -22,7 +23,7 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_EMAIL,
     pass: process.env.SMTP_PASSWORD,
   },
-});
+} as Parameters<typeof nodemailer.createTransport>[0]);
 
 export async function sendContactForm(data: ContactFormData) {
   try {
