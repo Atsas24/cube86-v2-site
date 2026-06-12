@@ -73,6 +73,32 @@ export default function WorkPage() {
       <section className="relative overflow-hidden bg-[#F7F7F7] py-20 md:py-28">
         <BgGrid withReveal={true} />
         <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-12 space-y-6">
+          <Link
+            href="/work/mango-mortar"
+            className="group block rounded-2xl bg-white border border-[var(--border)] p-8 md:p-10 shadow-card hover:-translate-y-0.5 hover:shadow-card-strong transition-[transform,box-shadow] duration-300"
+          >
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-forest)] font-semibold">
+                AI Chat Agent · Hospitality
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.14em] rounded-full bg-[var(--accent-lime)] text-[var(--brand-forest-deep)] font-semibold px-2.5 py-0.5">
+                Case study
+              </span>
+            </div>
+
+            <h3 className="font-display text-[26px] md:text-[32px] leading-[1.1] text-[var(--ink)]">
+              A Cotswolds B&amp;B stopped losing bookings at breakfast
+            </h3>
+            <p className="mt-4 text-[16px] leading-[1.75] text-[var(--ink-muted)] max-w-3xl">
+              A nine-room guesthouse was losing 3–5 reservations a week to response lag. We built a 24/7 AI guest assistant that answers instantly, escalates intelligently and sounds exactly like them.
+            </p>
+
+            <span className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--brand-forest)] group-hover:gap-2.5 transition-[gap] duration-200">
+              Read the case study
+              <span aria-hidden>→</span>
+            </span>
+          </Link>
+
           {USE_CASES.map((w) => (
             <article
               key={w.title}
