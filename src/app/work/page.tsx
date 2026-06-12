@@ -74,7 +74,7 @@ export default function WorkPage() {
         <BgGrid withReveal={true} />
         <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-12 space-y-6">
           <Link
-            href="/work/mango-mortar"
+            href="/work/hospitality-ai-chat-widget"
             className="group block rounded-2xl bg-white border border-[var(--border)] p-8 md:p-10 shadow-card hover:-translate-y-0.5 hover:shadow-card-strong transition-[transform,box-shadow] duration-300"
           >
             <div className="flex flex-wrap items-center gap-3 mb-5">

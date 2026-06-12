@@ -13,7 +13,7 @@ export const metadata = {
     title: "Cotswolds B&B — AI guest assistant case study | Cube86",
     description:
       "A 24/7 AI guest assistant that answers instantly, escalates intelligently and sounds exactly like the guesthouse. 3-5 bookings recovered every week.",
-    url: "https://cube86.com/work/mango-mortar",
+    url: "https://cube86.com/work/hospitality-ai-chat-widget",
   },
 };
 
@@ -105,10 +105,10 @@ const CTA_BODY =
   "If you're losing enquiries to response delays, we can fix that. Book a free audit and we'll show you exactly what's possible.";
 
 const SCREENSHOTS = [
-  { src: "/case-studies/mango-mortar/widget-open.png", alt: "Chat widget open showing the welcome greeting" },
-  { src: "/case-studies/mango-mortar/widget-parking.png", alt: "Guest asking about parking — answered in under 2 seconds" },
-  { src: "/case-studies/mango-mortar/widget-breakfast.png", alt: "Guest asking about breakfast times and dietary options" },
-  { src: "/case-studies/mango-mortar/admin-panel.png", alt: "The owner-facing FAQ admin panel" },
+  { src: "/case-studies/hospitality-ai-chat-widget/widget-open.png", alt: "Chat widget open showing the welcome greeting" },
+  { src: "/case-studies/hospitality-ai-chat-widget/widget-parking.png", alt: "Guest asking about parking — answered in under 2 seconds" },
+  { src: "/case-studies/hospitality-ai-chat-widget/widget-breakfast.png", alt: "Guest asking about breakfast times and dietary options" },
+  { src: "/case-studies/hospitality-ai-chat-widget/admin-panel.png", alt: "The owner-facing FAQ admin panel" },
 ];
 
 export default function MangoMortarCaseStudy() {
