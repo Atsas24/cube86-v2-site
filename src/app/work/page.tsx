@@ -99,6 +99,32 @@ export default function WorkPage() {
             </span>
           </Link>
 
+          <Link
+            href="/work/aegean-events-automation"
+            className="group block rounded-2xl bg-white border border-[var(--border)] p-8 md:p-10 shadow-card hover:-translate-y-0.5 hover:shadow-card-strong transition-[transform,box-shadow] duration-300"
+          >
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-forest)] font-semibold">
+                Operations Automation · Hospitality &amp; Events
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.14em] rounded-full bg-[var(--accent-lime)] text-[var(--brand-forest-deep)] font-semibold px-2.5 py-0.5">
+                Case study
+              </span>
+            </div>
+
+            <h3 className="font-display text-[26px] md:text-[32px] leading-[1.1] text-[var(--ink)]">
+              A Kos Island wedding planner stopped losing couples to faster replies
+            </h3>
+            <p className="mt-4 text-[16px] leading-[1.75] text-[var(--ink-muted)] max-w-3xl">
+              A boutique destination-wedding planner was losing 30% of couples to faster-replying competitors. We automated the entire enquiry pipeline — folder, tracker, welcome pack, planner task — in under a minute.
+            </p>
+
+            <span className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--brand-forest)] group-hover:gap-2.5 transition-[gap] duration-200">
+              Read the case study
+              <span aria-hidden>→</span>
+            </span>
+          </Link>
+
           {USE_CASES.map((w) => (
             <article
               key={w.title}
