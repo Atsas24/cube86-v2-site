@@ -125,6 +125,32 @@ export default function WorkPage() {
             </span>
           </Link>
 
+          <Link
+            href="/work/clapham-grants-dashboard"
+            className="group block rounded-2xl bg-white border border-[var(--border)] p-8 md:p-10 shadow-card hover:-translate-y-0.5 hover:shadow-card-strong transition-[transform,box-shadow] duration-300"
+          >
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-forest)] font-semibold">
+                Data &amp; Reporting · Charities &amp; Foundations
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.14em] rounded-full bg-[var(--accent-lime)] text-[var(--brand-forest-deep)] font-semibold px-2.5 py-0.5">
+                Case study
+              </span>
+            </div>
+
+            <h3 className="font-display text-[26px] md:text-[32px] leading-[1.1] text-[var(--ink)]">
+              A community foundation cut quarterly reporting from two days to twenty minutes
+            </h3>
+            <p className="mt-4 text-[16px] leading-[1.75] text-[var(--ink-muted)] max-w-3xl">
+              A small grants foundation was spending two full days assembling trustee reports by hand every quarter. We built a live dashboard connected directly to their Google Sheet — always current, funder report one click away.
+            </p>
+
+            <span className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--brand-forest)] group-hover:gap-2.5 transition-[gap] duration-200">
+              Read the case study
+              <span aria-hidden>→</span>
+            </span>
+          </Link>
+
           {USE_CASES.map((w) => (
             <article
               key={w.title}
